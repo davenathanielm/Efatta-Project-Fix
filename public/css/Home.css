@@ -1,0 +1,416 @@
+
+/* CSS Variables */
+:root{
+    --white-color: #fff;
+    --dark-color : #222;
+    --body-bg-color:#fff ;
+    --navigation-item-hover-color: #3b5378;
+
+    --text-shadow: 0 5px 25px rgba(0,0,0,0.1);
+    --box-shadow: 0 5px 25px rgba(0, 0, 0 / 20%);
+
+    --scroll-bar-color: #fff;
+    --scroll-thumb-color: #282f4e;
+    --scroll-thumb-hover-color: #454f6;
+}
+/* Css Variables end */
+
+
+body
+{
+    /* overflow-y: hidden; */
+}
+
+/* css gambar */
+.picture1
+{
+}
+/* css gmbar slesai */
+
+/* Home */
+.home
+{
+    min-height: 100vh;   
+}
+/* Home selesai */
+
+/* Header */
+header
+{
+    /* zz index sama position supaya headernya bisa di dalem  */
+    z-index: 999;
+    position: fixed; 
+    width: 100%;
+    height: calc(5rem + 1rem);
+    top: 0;
+    left: 0; 
+    /* iini untuk masukin justify content */
+    display: flex;
+    justify-content: center;
+}
+
+header .navigasi-bar
+{
+    position: relative;
+    /* ini yang bikin nengah secara vertical  */
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* kiri untuk vertical kanan untuk horizontal kanan sama kiri nya */
+    padding: 0 100px;
+    transition: 0.3 ease;
+}
+
+.navigasi-close-button, .navigasi-menu-button
+{
+    /* display none untuk menutupi tanpa menghilangkan */
+    display: none;
+}
+
+.navigasi-bar .logo
+{
+    color: var(--white-color);
+    font-size: 1.8em;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-shadow: 2px 2px 10px #000000;
+}
+
+.navigasi .navigasi-item a
+{
+    color: var(--white-color);
+    font-size: 1em;
+    text-decoration: none;
+    text-shadow: 2px 2px 10px #000000;
+}
+
+.navigasi .navigasi-item a i 
+{
+    display: none;
+}
+
+.navigasi .navigasi-item a:not(:last-child)
+{
+    /* not last child ini nantinya bagian yang join gaakan gerak  */
+    margin-right:45px ;
+}
+
+/* Header Selesai */
+
+/* Background-slider */
+
+.bg-slider
+{
+    z-index: 777;
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    /* x */
+}
+
+.bg-slider .swiper-slide
+{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    
+    
+}
+
+.bg-slider .swiper-slide img {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    background-position: center;
+    background-size: cover;
+    pointer-events: none;
+}
+
+.swiper-slide .text-content
+{
+    position: absolute;
+    top: 25%;
+    color: var(--white-color);
+    margin: 0 200px;
+    transition: 0.3 ease;
+}
+
+.swiper-slide .text-content .title
+{
+    font-size: 4em;
+    font-weight: 700;
+    text-shadow: 2px 2px 10px #000000;
+    margin-bottom: 20px;
+    transform: translateY(-50px);
+    opacity: 0;
+}
+
+.swiper-slide-active .text-content .title
+{
+    transform: translateY(0px);
+    opacity: 1;
+    transition: 1s ease;
+    transition-delay: .3s;
+    transition-property: transform,opacity;
+}
+
+.swiper-slide .text-content .title .span
+{
+    font-size: 0.3em;
+    font-weight: 300;
+}
+
+.swiper-slide .text-content p
+{
+    /* max width untuk batas kanan */
+    max-width: 500px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    text-shadow: var(--text-shadow);
+    padding: 20px;
+    border-radius: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: var(--box-shadow);
+    transform: translateX(-80px);
+    opacity: 0;
+}
+
+.swiper-slide-active .text-content p
+{
+    transform: translateX(0px);
+    opacity: 1;
+    transition: 1s ease;
+    transition-delay: .3s;
+}
+
+.dark-layer::before
+{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.2);
+}
+
+/* Background slider selesai */
+
+/* slider bawah */
+.bg-slider-thumbs
+{
+    z-index: 777;
+    position: absolute;
+    bottom: 4em;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: 0.3 ease;
+}
+
+.thumbs-container
+{
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    padding: 10px 3px;
+    border-radius: 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: var(--box-shadow);
+}
+
+.thumbs-container img
+{
+    width: 100px;
+    height: 65px;
+    margin: 0 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* untuk slider bawah baru*/
+.slides input
+{
+    display: none;
+    /* cursor: pointer; */
+}
+
+.navigation-manual{
+    position: absolute;
+    width: 800px;
+    margin-top: -40px;
+}
+
+.manual-btn
+{
+    border: 2px solid #000000;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.manual-btn:hover {
+    background-color: #f2f2f2;
+}
+
+.manual-btn:not(:last-child)
+{
+    margin-right: 15px;
+}
+
+#radio1:checked ~ .first
+{
+    margin-left: -70%;
+}
+
+#radio2:checked~.first {
+    margin-left: -70%;
+}
+/* slider bawah selesai */
+
+
+.background
+{
+    /* margin-bottom: 20px; */
+     padding-top: 2px;
+    
+    /* ini yang bikin 3d */
+    background-size: cover;
+    color: #f2f2f2;
+}
+
+/* Media Queries max-width : 1100px */
+@media screen and (max-width : 1100px) 
+{
+    header .navigasi-bar 
+    {
+        padding: 0 50px;
+    }
+
+    .swiper-slide .text-content
+     {
+        margin: 0 200px 0px 50px;
+     }
+}
+/* Media Queries max-width : 780px */
+@media screen and (max-width : 780px) {
+    header .navigasi-bar {
+        padding: 25px 42px;
+    }
+
+    .swiper-slide .text-content {
+        margin: 0 70px 0px 20px;
+    }
+
+    .swiper-slide .text-content .title
+    {
+        font-size: 3em;
+    }
+
+    .swiper-slide .text-content p{
+        margin: 0 70px 0px 0px;
+        font-size: 0.9em;
+    }
+
+    .navigasi-menu-button
+    {
+        display: block;
+        color: var(--white-color);
+        font-size: 1.5em;
+        cursor: pointer;
+    }
+
+    .navigasi-close-button
+    {
+        display: block;
+        /* color: var(--white-color); */
+        color: var(--dark-color);
+        position: absolute;
+        /* ini bakal overlap jadi dia ga ganggu div yang lain */
+        top: 0;
+        right: 0;
+        font-size: 1.9em;
+        margin: 10px;
+        cursor: pointer;
+        transition: 0.3s ease;
+        /* background-color: red; */
+    }
+
+    .navigasi
+    {
+        /* dibuat background nya full */
+        z-index: 99999;
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        background: rgba(0,0,0,0.2);
+        display: flex;
+        /* justify-content untuk tengah horizontal */
+        justify-content: center;
+        /* align items untuk tengah vertical */
+        align-items: center;
+        visibility: hidden;
+        opacity: 0;
+        transition: 0.3ease;
+    }
+
+    .navigasi.active
+    {
+        visibility: visible;
+        opacity: 1;
+        backdrop-filter: blur(20px);
+    }
+
+    .navigasi.active .navigasi-item
+    {
+        transform: translateY(0) ;
+        transition: 0.3s ease;
+    }
+
+    .navigasi .navigasi-item
+    {
+        position: relative;
+        background: var(--white-color);
+        width: 400px;
+        /* max-width: 400px; */
+        max-width: 350px;
+        display: grid;
+        place-content: center;
+        margin: 20px;
+        /* padding: 40px; */
+        padding: 20px 0px;
+        border-radius: 20px;
+        box-shadow: var(--box-shadow);
+        transform: translateY(-70px);
+        transition: 0.3s ease;
+        opacity: 0.9;
+    }
+
+    .navigasi .navigasi-item a
+    /* ini tiap items a mangkannya pake margin */
+    {
+        font-size: 1em;
+        /* kalau cuma 2 brti top dan buttom 15px lali kanan dan kiri 50px */
+        margin: 15px 50px;
+        transition: 0.3s ease;
+    }
+
+    .navigasi .navigasi-item a:hover
+    {
+        color: #3b5378;
+    }
+
+    .navigasi .navigasi-item a i 
+    {
+        /* display inline biar bisa nyamping  */
+        /* kalau inline doang gabisa atur width sama height kalau inline-block bisa atur dua" nya */
+        display: inline-block;
+        margin-right: 5px;
+    }
+}
